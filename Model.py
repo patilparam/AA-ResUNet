@@ -55,6 +55,9 @@ def bn_act(x, act=True):
         x = keras.layers.Activation("relu")(x)
     return x
 
+def relu(x):
+    return K.relu(x, max_value=6)
+
 def conv_block(x, filters, kernel_size=(3, 3), padding="same", strides=1):
     conv = bn_act(x)
     conv = keras.layers.SeparableConv2D(filters, kernel_size, padding=padding, strides=strides)(conv)
